@@ -12,3 +12,4 @@ C:\dev\dotnet-console\textEditor\obj\Debug\net8.0\refint\textEditor.dll
 C:\dev\dotnet-console\textEditor\obj\Debug\net8.0\textEditor.pdb
 C:\dev\dotnet-console\textEditor\obj\Debug\net8.0\textEditor.genruntimeconfig.cache
 C:\dev\dotnet-console\textEditor\obj\Debug\net8.0\ref\textEditor.dll
+C:\dev\dotnet-console\textEditor\obj\Debug\net8.0\textEditor.sourcelink.json

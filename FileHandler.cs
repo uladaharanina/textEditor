@@ -16,7 +16,16 @@ static class FileHandler{
                     Console.WriteLine(line);
                 }
 
-                EditFile(fileContent);
+                string newContent = EditFile(fileContent);
+
+                //Save Changes
+                try{
+                     SaveChanges(filePath, newContent);
+                     Console.WriteLine("Changes saved successfully!");
+                }
+                catch(Exception err){
+                    Console.WriteLine($"Error saving changes: {err.Message}");
+                }
             }
             else{
                 Console.WriteLine("File not found!");
@@ -26,21 +35,29 @@ static class FileHandler{
 
 
     //Edit File
-    static public List<string> EditFile(string[] fileContent){
+    static public string EditFile(string[] fileContent){
 
         Console.WriteLine("Enter your content: \n");
-        List<string> newContent = new List<string>();
+        string newContent = "";
         string line;
 
         while((line = Console.ReadLine()) != null){
             if (line.Trim().ToUpper() == "CTRL+Z"){
                 break;
             }
-            newContent = fileContent.ToList();
-            newContent.Add( line + '\n');
+            newContent += line + "\n";
+            //newContent.Add( line + '\n');
         }
+            Console.WriteLine(newContent);
 
         return newContent;
+
+    }
+
+    static public void SaveChanges(string filePath, string editedContent){
+
+
+        File.WriteAllText(filePath, editedContent);
 
     }
 }
