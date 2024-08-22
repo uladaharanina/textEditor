@@ -10,11 +10,9 @@ static class FileHandler{
 
             if(File.Exists(filePath)){
                 Console.WriteLine("File opened successfully!");
-                string[] fileContent = File.ReadAllLines(filePath);
+                string fileContent = File.ReadAllText(filePath);
 
-                foreach(string line in fileContent){
-                    Console.WriteLine(line);
-                }
+                Console.WriteLine(fileContent);
 
                 string newContent = EditFile(fileContent);
 
@@ -35,7 +33,7 @@ static class FileHandler{
 
 
     //Edit File
-    static public string EditFile(string[] fileContent){
+    static public string EditFile(string fileContent){
 
         Console.WriteLine("Enter your content: \n");
         string newContent = "";
@@ -46,11 +44,10 @@ static class FileHandler{
                 break;
             }
             newContent += line + "\n";
-            //newContent.Add( line + '\n');
-        }
-            Console.WriteLine(newContent);
+        }   
+            fileContent += newContent;
 
-        return newContent;
+        return fileContent;
 
     }
 
